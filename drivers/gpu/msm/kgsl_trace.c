@@ -3,6 +3,7 @@
  * Copyright (c) 2011,2013,2015,2019-2020 The Linux Foundation. All rights reserved.
  */
 
+#include <linux/types.h>
 #include <linux/module.h>
 
 #include "kgsl_device.h"
@@ -18,3 +19,4 @@ EXPORT_TRACEPOINT_SYMBOL(kgsl_user_pwrlevel_constraint);
 EXPORT_TRACEPOINT_SYMBOL(kgsl_constraint);
 
 EXPORT_TRACEPOINT_SYMBOL(gpu_frequency);
+EXPORT_TRACEPOINT_SYMBOL(gpu_work_period);
