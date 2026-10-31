@@ -20,7 +20,7 @@ jobs:
         run: sudo apt install -y git build-essential zip unzip curl
 
       - name: Get script
-        run: curl -sL https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh
+        run: curl -sL https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh -o build_actions.sh
 
       - name: Build kernel
         run: bash build_actions.sh
