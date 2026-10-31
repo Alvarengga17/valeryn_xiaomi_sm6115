@@ -1,14 +1,39 @@
-name: Build Kernel on GitHub Actions
+name: Build Kernel Resukisu on GitHub Actions
 
 on:
   workflow_dispatch:
 
 jobs:
-  dummy_job:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-24.04
     steps:
-      - name: Do Nothing
-        run: |
-          echo this workflow does nothing
-          echo use the build-actions branch instead
-          exit 1
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: susfs-2.3.0
+          fetch-depth: 1
+
+      - name: Update environment
+        run: sudo apt update -y
+
+      - name: Install Dependencies
+        run: sudo apt install -y git build-essential zip unzip curl
+
+      - name: Get script
+        run: curl -sL https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh
+
+      - name: Build kernel
+        run: bash build_actions.sh
+        continue-on-error: true
+
+      - name: Upload in Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            4.19*.zip
+            *kernel-prebuilt*.tar.xz
+          name: kernel chime ${{ github.run_id }}
+          tag_name: kernel-${{ github.run_id }}
+          body: chime kernel by @Joe7500 compiled by @Alvarengga17
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
