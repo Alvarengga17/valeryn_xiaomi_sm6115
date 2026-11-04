@@ -6,12 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    steps:
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      with:
-        detached: true
-
+    steps:    
     - name: Update environment
       run: sudo apt update -y
 
@@ -19,7 +14,7 @@ jobs:
       run: sudo apt install -y git build-essential zip unzip curl
 
     - name: Get script
-      run: curl -o build_actions.sh -L https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh
+      run: curl -o build_actions.sh -L https://raw.githubusercontent.com/Alvarengga17/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh
  
     - name: Build kernel
       run: bash build_actions.sh
