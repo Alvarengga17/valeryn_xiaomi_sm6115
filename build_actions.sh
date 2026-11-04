@@ -38,7 +38,7 @@ fi
 # ksun1
 rm -rf *
 git reset --hard
-git switch android16-susfs-2.3.0
+git switch android16
 git switch -c build-ksun1 || exit 1
 bash ../../build_ksun1.sh
 if [ $? -eq 0 ] ; then
