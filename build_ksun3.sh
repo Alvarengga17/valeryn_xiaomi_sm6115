@@ -15,15 +15,15 @@ tar xf AnyKernel3.tar.xz  || exit 1
 PATH=$PWD/toolchain/bin:$PATH
 
 # Apply changes
-git cherry-pick 84b385eb683c32beed15194b8c69611b3f35447f || exit 1
-git cherry-pick 70865a757dfceb92fd0dc7d9074b432086c7b73f || exit 1
-git cherry-pick 3f72527874b7007742e2dd24d5dc22891c031c3b || exit 1
-git cherry-pick 5c6b9ed54ab6f3ffb820dfa27c037137e3eeae52 || exit 1
-git cherry-pick 9beaa41861278b138f028253cdb0b4c5f80ee646
-grep -vE '<<<|===|>>>' arch/arm64/configs/vendor/bengal-perf_defconfig > arch/arm64/configs/vendor/bengal-perf_defconfig.1
-mv arch/arm64/configs/vendor/bengal-perf_defconfig.1 arch/arm64/configs/vendor/bengal-perf_defconfig
-git add arch/arm64/configs/vendor/bengal-perf_defconfig
-git cherry-pick --continue --no-edit
+# git cherry-pick 84b385eb683c32beed15194b8c69611b3f35447f || exit 1
+# git cherry-pick 70865a757dfceb92fd0dc7d9074b432086c7b73f || exit 1
+# git cherry-pick 3f72527874b7007742e2dd24d5dc22891c031c3b || exit 1
+# git cherry-pick 5c6b9ed54ab6f3ffb820dfa27c037137e3eeae52 || exit 1
+# git cherry-pick 9beaa41861278b138f028253cdb0b4c5f80ee646
+# grep -vE '<<<|===|>>>' arch/arm64/configs/vendor/bengal-perf_defconfig > arch/arm64/configs/vendor/bengal-perf_defconfig.1
+# mv arch/arm64/configs/vendor/bengal-perf_defconfig.1 arch/arm64/configs/vendor/bengal-perf_defconfig
+# git add arch/arm64/configs/vendor/bengal-perf_defconfig
+# git cherry-pick --continue --no-edit
 
 curl -o KernelSU-Next-susfs-3.2.0.tar.xz -L https://github.com/Alvarengga17/valeryn_xiaomi_sm6115/raw/refs/heads/build-actions/KernelSU-Next-susfs-3.2.0.tar.xz || exit 1
 tar xf KernelSU-Next-susfs-3.2.0.tar.xz
