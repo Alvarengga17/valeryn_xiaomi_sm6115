@@ -4,14 +4,14 @@
 set -x
 
 # Setup
-curl -o build_vanilla.sh -L https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_vanilla.sh || exit 1
-curl -o build_ksun1.sh -L https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_ksun1.sh || exit 1
-curl -o build_ksun3.sh -L https://raw.githubusercontent.com/Joe7500/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_ksun3.sh || exit 1
+curl -o build_vanilla.sh -L https://raw.githubusercontent.com/Alvarengga17/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_vanilla.sh || exit 1
+curl -o build_ksun1.sh -L https://raw.githubusercontent.com/Alvarengga17/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_ksun1.sh || exit 1
+curl -o build_ksun3.sh -L https://raw.githubusercontent.com/Alvarengga17/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_ksun3.sh || exit 1
 
 mkdir build
 cd build
 rm -rf kernel
-git clone https://github.com/Joe7500/valeryn_xiaomi_sm6115 kernel
+git clone https://github.com/Alvarengga17/valeryn_xiaomi_sm6115 kernel
 
 cd kernel || exit 1
 KERNEL_BUILD_DIR=`pwd`
