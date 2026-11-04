@@ -25,7 +25,7 @@ git config user.name "user"
 # vanilla
 rm -rf *
 git reset --hard
-git switch android16-susfs-2.3.0
+git switch android16
 git switch -c build-vanilla || exit 1
 bash  ../../build_vanilla.sh 
 if [ $? -eq 0 ] ; then
