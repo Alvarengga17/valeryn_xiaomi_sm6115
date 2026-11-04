@@ -6,8 +6,8 @@ ZIPNAME=4.19-A16-valeryn-ksun-1.1.1-`date +'%d.%m.%y-%H%M'`.zip
 set -x
 
 # Setup tools
-curl -o toolchain.tar.xz -L https://github.com/Alvarengga17/Builds/releases/download/Stuff/toolchain.tar.xz || exit 1
-curl -o AnyKernel3.tar.xz -L https://github.com/Alvarengga17/Builds/releases/download/Stuff/AnyKernel3.tar.xz || exit 1
+curl -o toolchain.tar.xz -L https://github.com/Joe7500/Builds/releases/download/Stuff/toolchain.tar.xz || exit 1
+curl -o AnyKernel3.tar.xz -L https://github.com/Joe7500/Builds/releases/download/Stuff/AnyKernel3.tar.xz || exit 1
 rm -rf toolchain prebuilts
 tar xf toolchain.tar.xz || exit 1
 ln -s prebuilts/clang/host/linux-x86/clang-stablekern/ toolchain
