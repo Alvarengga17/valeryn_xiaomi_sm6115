@@ -4,11 +4,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  dummy_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Do Nothing
-        run: |
-          echo this workflow does nothing
-          echo use the build-actions branch instead
-          exit 1
+  build:
+    runs-on: ubuntu-24.04
+    steps:  
+    - name: Update environment
+      run: sudo apt update -y
+
+    - name: Install Dependencies
+      run: sudo apt install -y git build-essential zip unzip curl
+
+    - name: Get script
+      run: curl -o build_actions.sh -L https://raw.githubusercontent.com/Alvarengga17/valeryn_xiaomi_sm6115/refs/heads/build-actions/build_actions.sh
+ 
+    - name: Build kernel
+      run: bash build_actions.sh
+      continue-on-error: true
+
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v3
+      with:
+        files: |
+          4.19*.zip
+          *kernel-prebuilt*.tar.xz
+        name: kernel chime ${{ github.run_id }}
+        tag_name: ${{ github.run_id }}
+        body: chime kernel by @joe_7500
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
