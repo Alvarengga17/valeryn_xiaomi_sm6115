@@ -1,5 +1,5 @@
-#ifndef KSU_SUSFS_DEF_H
-#define KSU_SUSFS_DEF_H
+#ifndef _SUSFS_DEF_H
+#define _SUSFS_DEF_H
 
 #include <linux/bits.h>
 #include <linux/string.h>
@@ -216,4 +216,4 @@ static inline void susfs_clear_current_proc_no_su(void) {
 		inode && inode->i_mapping && \
 		unlikely(test_bit(AS_FLAGS_OPEN_REDIRECT, &inode->i_state)) && \
 		susfs_is_current_proc_umounted_app()
-#endif // #ifndef KSU_SUSFS_DEF_H
+#endif // #ifndef _SUSFS_DEF_H
