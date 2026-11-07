@@ -25,7 +25,7 @@
 #include <linux/ftrace.h>
 #include <linux/compiler.h>
 #ifdef CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS
-#include "susfs_def.h"
+#include <linux/susfs_def.h>
 #endif // #ifdef CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS
 
 /*
