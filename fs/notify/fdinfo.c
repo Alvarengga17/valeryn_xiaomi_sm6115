@@ -1,6 +1,4 @@
 // SPDX-License-Identifier: GPL-2.0
-#if defined(CONFIG_PROC_FS)
-#if defined(CONFIG_INOTIFY_USER) || defined(CONFIG_FANOTIFY)
 #include <linux/file.h>
 #include <linux/fs.h>
 #include <linux/fsnotify_backend.h>
@@ -16,15 +14,15 @@
 #include <linux/proc_fs.h>
 #include <linux/exportfs.h>
 #ifdef CONFIG_KSU_SUSFS
-#include "susfs_def.h"
+#include <linux/susfs_def.h>
 #endif // #ifdef CONFIG_KSU_SUSFS
 
 #include "inotify/inotify.h"
 #include "fsnotify.h"
 
+#if defined(CONFIG_PROC_FS)
 
-
-
+#if defined(CONFIG_INOTIFY_USER) || defined(CONFIG_FANOTIFY)
 
 #ifdef CONFIG_KSU_SUSFS_SUS_KSTAT
 extern bool susfs_is_inode_sus_kstat(struct inode *inode, bool *out_is_fuse);
